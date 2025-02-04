@@ -85,7 +85,7 @@ for i in range(0,24):
         restaurant_list["Yelp Link"] = yelp_link_complete
         j += 1
         final_processed_data[j] = restaurant_list
-    driver.quit()
+    driver.close()
     
 df = pd.DataFrame.from_dict(final_processed_data, orient="index")
 df.to_csv("newyork_restaurents.csv", index=False)
