@@ -16,7 +16,7 @@ import re
 base_url = f'https://www.yelp.com/search?cflt=restaurants&find_loc=New+York%2C+NY'
 final_processed_data = {}
 j=0
-for i in range(0,10):
+for i in range(0,24):
     print(i)
     if i==0:
         topic_url = base_url
