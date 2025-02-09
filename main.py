@@ -10,13 +10,14 @@ from tqdm import tqdm
 from random import randint
 import pandas as pd
 import re
+import asyncio
 #city = str(input('type the destination city: '))
 #page_no = int(input('how many page do you scrap: '))
-
+from page_details import *
 base_url = f'https://www.yelp.com/search?cflt=restaurants&find_loc=New+York%2C+NY'
 final_processed_data = {}
 j=0
-for i in range(0,24):
+for i in range(0,1):
     print(i)
     if i==0:
         topic_url = base_url
@@ -83,6 +84,9 @@ for i in range(0,24):
         except:
             yelp_link_complete=""
         restaurant_list["Yelp Link"] = yelp_link_complete
+        print(yelp_link_complete)
+        print(asyncio.run(run([f"{yelp_link_complete}"])))
+        time.sleep(5)
         j += 1
         final_processed_data[j] = restaurant_list
     driver.close()
